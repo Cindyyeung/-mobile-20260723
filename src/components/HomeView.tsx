@@ -50,7 +50,7 @@ export default function HomeView({
   }, []);
 
   const handleSpeakGreeting = () => {
-    speakText(`${greeting}。請點擊「今日情緒打卡」按鈕記錄你今天的心情。`);
+    speakText(`${greeting}。請點擊「今日心情記錄」按鈕記錄你今天的心情。`);
   };
 
   const handleWater = () => {
@@ -183,7 +183,7 @@ export default function HomeView({
             <div className="absolute left-5 flex items-center justify-center">
               <Sparkles className="w-4.5 h-4.5 text-brand-ochre animate-pulse" />
             </div>
-            <span className="tracking-wide">今日情緒打卡</span>
+            <span className="tracking-wide">今日心情記錄</span>
           </motion.button>
         </div>
 

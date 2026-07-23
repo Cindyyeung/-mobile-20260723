@@ -696,7 +696,7 @@ export default function JournalView({
             <p className="text-sm font-semibold text-brand-moss mt-1.5">
               {selectedDateFilter 
                 ? '您可以點擊「清除篩選」查看本月其他日誌。' 
-                : '點擊「首頁」大按鈕，開始進行你今天的心情打卡吧！'}
+                : '點擊「首頁」大按鈕，開始進行你今天的心情記錄吧！'}
             </p>
             {selectedDateFilter && (
               <button

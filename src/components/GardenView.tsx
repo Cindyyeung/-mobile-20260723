@@ -440,7 +440,7 @@ export default function GardenView({
             <div className="text-center space-y-1 shrink-0">
               <div className="inline-flex items-center gap-1 bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full text-xs font-black">
                 <span>🃏</span>
-                <span>今日打卡解鎖 · 情緒語錄卡牌</span>
+                <span>今日記錄心情解鎖 · 情緒語錄卡牌</span>
               </div>
               <h3 className="text-base font-black text-gray-800">每日心靈卡牌</h3>
             </div>
@@ -473,7 +473,7 @@ export default function GardenView({
                       title="粵語朗讀語錄"
                     >
                       <Volume2 className="w-3.5 h-3.5 text-amber-700" />
-                      <span>🔊 粵語朗讀</span>
+                      <span>粵語朗讀</span>
                     </button>
                   </div>
                   <p className="text-sm sm:text-base font-black text-gray-800 leading-relaxed font-sans px-1 text-left">
@@ -483,7 +483,7 @@ export default function GardenView({
                 </div>
 
                 <div className="bg-amber-100/60 p-2.5 rounded-xl border border-amber-200/50 text-[11px] font-extrabold text-amber-900 leading-snug">
-                  🌱 小綠記錄：感謝你今天認真面對自己的心情！持之以恆打卡，花園小苗會越長越茁壯喔！
+                  🌱 小綠記錄：感謝你今天認真面對自己的心情！持之以恆記錄，花園小苗會越長越茁壯喔！
                 </div>
               </motion.div>
             </div>
@@ -909,20 +909,20 @@ export default function GardenView({
               const isQuoteClaimedToday = lastClaimedQuoteDate === todayStr;
 
               if (gift.id === 'gift-0') {
-                let statusDesc = '⭐ 每日打卡即可免費領取';
+                let statusDesc = '⭐ 每日記錄心情即可免費領取';
                 let buttonLabel = '領取';
                 let btnStyle = 'bg-brand-sage text-white hover:bg-brand-moss active:scale-95 shadow-xs border-0';
 
                 if (!hasCheckedInToday) {
-                  statusDesc = '🔒 今日尚未打卡（請先完成打卡）';
-                  buttonLabel = '未打卡';
+                  statusDesc = '🔒 今日尚未記錄心情（請先記錄心情）';
+                  buttonLabel = '未記錄';
                   btnStyle = 'bg-amber-100/90 text-amber-800 border border-amber-300 hover:bg-amber-200 active:scale-95';
                 } else if (isQuoteClaimedToday) {
-                  statusDesc = '✅ 今日已領取（明天打卡可再領）';
+                  statusDesc = '✅ 今日已領取（明天記錄心情可再領）';
                   buttonLabel = '今日已領';
                   btnStyle = 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100/50 cursor-pointer';
                 } else {
-                  statusDesc = '✨ 今日已打卡！點擊即可免費領取';
+                  statusDesc = '✨ 今日已記錄心情！點擊即可免費領取';
                   buttonLabel = '免費領取';
                   btnStyle = 'bg-brand-ochre text-white hover:bg-amber-600 active:scale-95 shadow-xs font-black border-0 animate-pulse';
                 }
@@ -1252,9 +1252,9 @@ export default function GardenView({
               >
                 <div className="text-4xl">🔒</div>
                 <div className="space-y-1.5">
-                  <h4 className="text-base font-black text-gray-800">今日尚未打卡喔！</h4>
+                  <h4 className="text-base font-black text-gray-800">今日尚未記錄心情喔！</h4>
                   <p className="text-xs font-extrabold text-gray-500 leading-relaxed">
-                    「情緒語錄卡牌」是專屬於每日心情打卡的獎勵！完成今日打卡後即可免費領取！
+                    「情緒語錄卡牌」是專屬於每日心情記錄的獎勵！完成今日記錄心情後即可免費領取！
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 pt-2">
@@ -1270,7 +1270,7 @@ export default function GardenView({
                     }}
                     className="w-full py-2.5 bg-brand-sage hover:bg-brand-moss text-white rounded-xl text-xs font-black transition cursor-pointer shadow-xs border-0"
                   >
-                    🏠 去完成今日打卡
+                    🏠 去完成今日記錄心情
                   </button>
                   <button
                     onClick={() => setShowUncheckedModal(false)}
@@ -1478,23 +1478,23 @@ export default function GardenView({
         <ul className="text-[13px] sm:text-[14px] font-bold text-gray-500 space-y-1.5 font-sans leading-relaxed">
           <li className="flex items-center gap-1.5">
             <span className="text-emerald-500">✅</span>
-            <span>每日打卡 <span className="text-brand-sage font-black">+1</span></span>
+            <span>每日記錄情緒 <span className="text-brand-sage font-black">+1</span></span>
           </li>
           <li className="flex items-center gap-1.5">
             <span className="text-emerald-500">✅</span>
-            <span>打卡完成後領取語錄卡 <span className="text-brand-sage font-black">+1</span></span>
+            <span>寫日誌超過 10 字 <span className="text-brand-sage font-black">+1</span></span>
           </li>
           <li className="flex items-center gap-1.5">
             <span className="text-emerald-500">✅</span>
-            <span>每日澆花 <span className="text-brand-sage font-black">+1</span></span>
+            <span>連續 3 日寫日誌 <span className="text-brand-ochre font-black">+2</span></span>
           </li>
           <li className="flex items-center gap-1.5">
             <span className="text-emerald-500">✅</span>
-            <span>每日寫日誌超過 10 字 <span className="text-brand-sage font-black">+1</span></span>
+            <span>使用急救箱練習 <span className="text-brand-sage font-black">+1</span></span>
           </li>
           <li className="flex items-center gap-1.5">
             <span className="text-emerald-500">✅</span>
-            <span>連續 3 日打卡 <span className="text-brand-ochre font-black">+2</span></span>
+            <span>領取情緒語錄卡 <span className="text-brand-sage font-black">+1（每張）</span></span>
           </li>
           <li className="flex items-center gap-1.5">
             <span className="text-emerald-500">✅</span>

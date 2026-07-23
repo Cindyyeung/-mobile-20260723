@@ -226,12 +226,12 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
       setTimeout(() => handleSpeak(textToSpeak), 200);
     } else if (step === 2) {
       setStep(3);
-      setTimeout(() => handleSpeak('可以寫低發生咩事，或者直接完成打卡。'), 200);
+      setTimeout(() => handleSpeak('可以寫低發生咩事，或者直接完成記錄。'), 200);
     } else if (step === 3) {
       // Trigger complete
       playSuccessChime();
       setStep(4);
-      setTimeout(() => handleSpeak('打卡完成！今日你注意自己，這已經是一個照顧。'), 200);
+      setTimeout(() => handleSpeak('記錄完成！今日你注意自己，這已經是一個照顧。'), 200);
     }
   };
 
@@ -293,9 +293,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
             <div className="w-12 h-10" />
           )}
 
-          <h1 className="text-[17px] font-black text-gray-800 tracking-wide font-sans">
-            情緒打卡
-          </h1>
+          <div className="w-12 h-10" />
 
           {/* TTS support icon */}
           <button
@@ -303,7 +301,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
               if (step === 1) handleSpeak("今日心情係點樣？請選擇你現在的情緒。");
               if (step === 2 && currentMoodInfo) handleSpeak(`${currentMoodInfo.emoji}你選擇咗「${currentMoodInfo.label}」。${currentMoodInfo.responseQuote}`);
               if (step === 3) handleSpeak("可以寫低發生咩事，用簡單嘅文字記錄今日觸動你嘅瞬間。");
-              if (step === 4) handleSpeak("打卡完成！你的每一次打卡，都是灌溉心靈綠洲的水分。");
+              if (step === 4) handleSpeak("記錄完成！你的每一次記錄，都是灌溉心靈綠洲的水分。");
             }}
             className="p-2 rounded-full bg-brand-sand hover:bg-brand-sage/20 text-brand-moss transition active:scale-90 cursor-pointer"
             title="語音導讀"
@@ -332,11 +330,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
               步驟 {step}/3
             </span>
           </div>
-        ) : (
-          <div className="flex items-center justify-center gap-1 mt-2">
-            <span className="text-xs font-bold text-brand-sage">✨ 打卡成功</span>
-          </div>
-        )}
+        ) : null}
       </div>
 
       {/* Main Body */}
@@ -487,7 +481,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
 
                 {currentMoodInfo.type === 'heavy' && (
                   <p className="text-base font-bold text-brand-moss text-center border-t border-brand-sand pt-3">
-                    溫馨提醒：打卡完成後，可前往「急救箱」體驗深呼吸練習與感官放鬆。
+                    溫馨提醒：記錄完成後，可前往「急救箱」體驗深呼吸練習與感官放鬆。
                   </p>
                 )}
               </div>
@@ -734,7 +728,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
                   className="w-full py-3 rounded-[100px] text-sm sm:text-base font-black bg-brand-sage hover:bg-brand-moss text-white transition shadow-[0_4px_12px_rgba(109,160,111,0.2)] active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   style={{ minHeight: '44px' }}
                 >
-                  完成打卡
+                  完成記錄
                 </button>
                 <button
                   onClick={() => handleSkipOrCompleteStep3(true)}
@@ -765,12 +759,12 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
                 </motion.div>
 
                 <h2 className="text-[32px] font-black text-brand-moss font-sans tracking-tight">
-                  ♥ 打卡完成 ♥
+                  ♥ 記錄完成 ♥
                 </h2>
 
                 <div className="max-w-xs mx-auto space-y-3">
                   <p className="text-base font-extrabold text-brand-moss">
-                    你的每一次打卡，都是灌溉心靈綠洲的水分。
+                    你的每一次記錄，都是灌溉心靈綠洲的水分。
                   </p>
                 </div>
 
@@ -800,7 +794,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
                 {/* Logged Content Summary Card */}
                 <div className="bg-white border-2 border-brand-sand rounded-3xl p-4 text-left shadow-sm space-y-3 max-w-sm mx-auto w-full mt-3">
                   <h4 className="text-[11px] font-extrabold text-gray-400 tracking-wider text-center border-b border-brand-sand/60 pb-2 uppercase font-sans">
-                    📋 今日心情打卡記錄
+                    📋 今日心情記錄
                   </h4>
                   
                   {/* Mood Info row */}
@@ -832,7 +826,7 @@ export default function CheckInWizard({ onClose, onComplete, onClaimQuote, onGoT
                   <div className="flex flex-col gap-1.5 border-t border-brand-sand/40 pt-2.5">
                     <span className="text-xs font-black text-gray-400">心情感受 / 發生什麼事:</span>
                     <p className="text-xs font-semibold text-gray-700 bg-[#FAF6F0] p-3 rounded-2xl border border-brand-sand/35 leading-relaxed italic font-sans max-h-[80px] overflow-y-auto">
-                      {reason.trim() ? reason : '僅進行心情與狀態打卡，未寫下日記文字。'}
+                      {reason.trim() ? reason : '僅進行心情與狀態記錄，未寫下日記文字。'}
                     </p>
                   </div>
                 </div>
