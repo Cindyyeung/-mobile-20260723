@@ -47,30 +47,30 @@ const GIFTS: GiftItem[] = [
     id: 'gift-2',
     name: '貼紙',
     desc: '',
-    cost: 4,
+    cost: 5,
     emoji: '🌸'
   },
   {
     id: 'gift-3',
     name: '精美書籤',
     desc: '',
-    cost: 8,
+    cost: 10,
     emoji: '📖'
   },
   {
     id: 'gift-4',
     name: '驚喜盲盒',
     desc: '',
-    cost: 30,
-    cardsNeeded: 20,
+    cost: 40,
+    cardsNeeded: 10,
     emoji: '🎁'
   },
   {
     id: 'gift-5',
     name: '心晴大獎',
     desc: '禮物包',
-    cost: 50,
-    cardsNeeded: 30,
+    cost: 60,
+    cardsNeeded: 20,
     emoji: '🏆'
   }
 ];

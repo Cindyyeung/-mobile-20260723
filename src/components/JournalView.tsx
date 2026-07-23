@@ -20,7 +20,6 @@ import {
   Search,
   ArrowLeft
 } from 'lucide-react';
-import MoodTrendsView from './MoodTrendsView';
 
 interface JournalViewProps {
   records: CheckInRecord[];
@@ -38,7 +37,6 @@ export default function JournalView({
   const [selectedMonth, setSelectedMonth] = useState('2026-07');
   const [moodFilter, setMoodFilter] = useState<'all' | 'positive' | 'heavy'>('all');
   const [selectedDateFilter, setSelectedDateFilter] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<'list' | 'trends'>('list');
   
   // Custom manual record (補記) modal state
   const [isAddingCustom, setIsAddingCustom] = useState(false);
@@ -294,33 +292,9 @@ export default function JournalView({
           <ClipboardList className="w-5.5 h-5.5 text-brand-moss shrink-0" />
           <h2 className="text-2xl font-black text-gray-800 font-sans tracking-tight whitespace-nowrap">我的日誌</h2>
         </div>
-        <div className="flex bg-brand-sand/50 p-1 rounded-xl">
-          <button
-            onClick={() => {
-              playClickSound(400, 'sine');
-              setViewMode('list');
-            }}
-            className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors cursor-pointer ${viewMode === 'list' ? 'bg-white text-brand-moss shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
-          >
-            列表
-          </button>
-          <button
-            onClick={() => {
-              playClickSound(400, 'sine');
-              setViewMode('trends');
-            }}
-            className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors cursor-pointer ${viewMode === 'trends' ? 'bg-white text-brand-moss shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
-          >
-            趨勢
-          </button>
-        </div>
       </div>
 
-      {viewMode === 'trends' ? (
-        <MoodTrendsView records={records} />
-      ) : (
-        <>
-          {/* Interactive Month & Filtering Bar - Perfectly grid-aligned */}
+      {/* Interactive Month & Filtering Bar - Perfectly grid-aligned */}
           <div className="grid grid-cols-4 gap-1.5 bg-white/80 backdrop-blur-sm p-1.5 rounded-2xl border-2 border-brand-sand shadow-xs w-full shrink-0">
         {/* Mood Calendar Button */}
         <button
@@ -831,8 +805,6 @@ export default function JournalView({
           </div>
         )}
       </div>
-      </>
-      )}
 
       {/* Interactive Month-View Calendar Modal Overlay */}
       {showCalendarModal && (
@@ -1036,7 +1008,7 @@ export default function JournalView({
         return (
           <div className="absolute inset-0 bg-brand-beige z-40 flex flex-col animate-slideUp overflow-hidden">
             {/* Header */}
-            <div className="bg-white px-4 py-3.5 border-b-2 border-brand-sand flex items-center justify-between shrink-0 shadow-xs">
+            <div className="bg-white px-4 pt-4 pb-3 border-b-2 border-brand-sand flex items-center justify-between shrink-0 shadow-xs">
               <button
                 onClick={() => {
                   playClickSound(400, 'sine');
@@ -1104,7 +1076,7 @@ export default function JournalView({
                     title="粵語朗讀日誌內容"
                   >
                     <Volume2 className="w-3.5 h-3.5 text-brand-moss" />
-                    <span>🔊 粵語朗讀</span>
+                    <span>粵語朗讀</span>
                   </button>
                 </div>
                 <p className="text-sm sm:text-base font-bold text-gray-700 leading-relaxed pt-2 whitespace-pre-wrap font-sans">
